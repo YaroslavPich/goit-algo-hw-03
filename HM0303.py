@@ -5,9 +5,9 @@ def normalize_phone(phone_number):
     """converting phone numbers into the correct format"""
     pattern = r"[\+\d]+"
     sanitized_numbers = "".join(re.findall(pattern, phone_number))
-    if sanitized_numbers.startswith("380"):
+    if len(sanitized_numbers) == 12:
         sanitized_numbers = "+" + sanitized_numbers
-    elif sanitized_numbers.startswith("0"):
+    elif len(sanitized_numbers) == 10:
         sanitized_numbers = "+38" + sanitized_numbers
     return sanitized_numbers
 
@@ -22,6 +22,7 @@ raw_numbers = [
     "(050)8889900",
     "38050-111-22-22",
     "38050 111 22 11   ",
+    " 972545379039 ",
 ]
 
 sanitized_numbers = [normalize_phone(num) for num in raw_numbers]

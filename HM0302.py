@@ -5,7 +5,7 @@ def get_numbers_ticket(min, max, quantity):
     """generating a set of unique random numbers for the lottery"""
     lottery_generation = []
     # checking the correctness of input according to the condition
-    if (minimum >= 1) and (maximum <= 1000) and (minimum <= quantity <= maximum):
+    if (minimum >= 1) and (maximum <= 1000):
         while len(lottery_generation) < quantity:
             numeric = random.randint(minimum, maximum)
             if numeric not in lottery_generation:
