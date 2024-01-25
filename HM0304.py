@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 
 
 def get_upcoming_birthdays(users):
+    """creating a tuple for greetings for the week"""
     today = datetime.today().date()
     upcoming_birthdays = []
     for user in users:
@@ -10,8 +11,11 @@ def get_upcoming_birthdays(users):
         if birthday_this_year < today:
             continue
         birthday_this_week = birthday_this_year - today
+        # check on a working or weekend birthday
         if 0 <= birthday_this_week.days <= 7:
+            # check if working
             if birthday_this_year.isoweekday() < 6:
+                # add a tuple with the name and date of the greeting to the list
                 upcoming_birthdays.append(
                     {
                         "name": user["name"],
@@ -21,8 +25,10 @@ def get_upcoming_birthdays(users):
                     }
                 )
             else:
+                # check if saturday
                 if birthday_this_year.isoweekday() == 6:
                     birthday_this_year = birthday_this_year + timedelta(days=2)
+                    # add a tuple with the name and date of the greeting to the list
                     upcoming_birthdays.append(
                         {
                             "name": user["name"],
@@ -31,9 +37,10 @@ def get_upcoming_birthdays(users):
                             ),
                         }
                     )
-
+                # check if sunday
                 elif birthday_this_year.isoweekday() == 7:
                     birthday_this_year = birthday_this_year + timedelta(day=1)
+                    # add a tuple with the name and date of the greeting to the list
                     upcoming_birthdays.append(
                         {
                             "name": user["name"],

@@ -2,6 +2,7 @@ import re
 
 
 def normalize_phone(phone_number):
+    """converting phone numbers into the correct format"""
     pattern = r"[\+\d]+"
     sanitized_numbers = "".join(re.findall(pattern, phone_number))
     if sanitized_numbers.startswith("380"):
