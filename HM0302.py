@@ -1,7 +1,7 @@
 import random
 
 
-def get_numbers_ticket(min, max, quantity):
+def get_numbers_ticket(minimum, maximum, quantity):
     """generating a set of unique random numbers for the lottery"""
     lottery_generation = []
     # checking the correctness of input according to the condition

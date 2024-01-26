@@ -39,7 +39,7 @@ def get_upcoming_birthdays(users):
                     )
                 # check if sunday
                 elif birthday_this_year.isoweekday() == 7:
-                    birthday_this_year = birthday_this_year + timedelta(day=1)
+                    birthday_this_year = birthday_this_year + timedelta(days=1)
                     # add a tuple with the name and date of the greeting to the list
                     upcoming_birthdays.append(
                         {
@@ -56,7 +56,7 @@ def get_upcoming_birthdays(users):
 users = [
     {"name": "John Doe", "birthday": "1985.01.23"},
     {"name": "Jane Smith", "birthday": "1990.01.26"},
-    {"name": "Nick Darsel", "birthday": "1984.01.27"},
+    {"name": "Nick Darsel", "birthday": "1984.01.28"},
     {"name": "Ethan Williams", "birthday": "1970.01.30"},
     {"name": "Liam Smith", "birthday": "1995.01.20"},
 ]
